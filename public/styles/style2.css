@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #142823, #1f4037, #2e6952);
+}
+input{
+    padding: 5px 13px;
+    border-radius: 5px 0px 0px 5px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    font-weight: 400;
+   
+}
+button{
+    padding: 5px 15px ;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(to right, #8da2b0, #b6afb9);
+   
+}
+.centered-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  text-align: center;
+  margin-top: -40px;
+   margin-bottom: 0;
+}
+
+.centered-form .welcome-heading {
+  font-size: 2.9rem;
+  color: white;
+  font-weight: 600;
+  margin: 0;
+
+}
+
+.centered-form .input-group {
+  display: flex;
+  justify-content: center;
+  margin-left: -15px;
+}

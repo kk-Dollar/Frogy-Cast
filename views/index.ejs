@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather app</title>
+  <link rel="stylesheet" href="/styles/style.css" />
+</head>
+<%
+  let condition = locals.weather ? weather.list[0].weather[0].main.toLowerCase() : '';
+  let bgStyle = '';
+
+  if (condition === 'clear') {
+    bgStyle = 'linear-gradient(to bottom, #9be3ff, #8bda66, #ffeaa5)';
+  } else if (condition === 'clouds') {
+    bgStyle = 'linear-gradient(to bottom, #aac4d8, #708fa1, #5c8459)';
+  } else if (condition === 'rain') {
+    bgStyle = 'linear-gradient(to bottom, #6aa6a5, #8cc3b8, #435c49)';
+  } else if (condition === 'snow') {
+    bgStyle = 'linear-gradient(to bottom, #b6e4f8, #e8faff, #629191)';
+  } else if (condition === 'thunderstorm') {
+    bgStyle = 'linear-gradient(to bottom, #142437, #26507b, #2d5235)';
+  } else {
+    bgStyle = 'linear-gradient(to bottom, #1b2f2f, #1a4731, #355c4d)';
+  }
+%>
+
+
+ <body <% if(bgStyle) { %> style="background: <%= bgStyle %>;" <% } %>>
+        <div class="container">
+          <form id="myform" method="post" >
+           
+
+                <div class="input-group">
+                  <input type="text" name="city_name" placeholder="Enter City" autocomplete="on" />
+                  <button type="submit">🔍</button>
+                </div>
+          </form>
+          <% if(locals.weather){ %>
+            <% let available=['clear','rain','clouds','snow','thunderstorm']; let
+              frog=available.includes(condition)?`/images/${condition}.png`:'/images/default.png'; %>
+              <div class="response-area frog-background" style="background-image: url('<%= frog%>')">
+                <div class="left-data">
+                  <p class="now">Now</p>
+                  <div class="temperature-info">
+                    <p class="temperature">
+                      <%= Math.floor(weather.list[0].main.temp) %>&deg;
+                    </p>
+                    <img src="http://openweathermap.org/img/wn/<%= weather.list[0].weather[0].icon %>@2x.png"
+                      alt="Weather Icon" />
+                  </div>
+                  <p>
+                    Feels like <%=Math.floor(weather.list[0].main.feels_like)%>&deg;
+                  </p>
+                  <% if(locals.city){%>
+                    <div class="city-name">
+                      <p>
+                        <img src="/images/pin.png" />
+                        <%=city%>
+                      </p>
+                    </div>
+
+                    <% } %>
+                </div>
+
+                <div class="right-data">
+                  <p>
+                    <%= weather.list[0].weather[0].description %>
+                  </p>
+
+                  <% if (weather.list[0].rain && weather.list[0].rain['3h']) { %>
+                    <p>Precip: <%= Math.floor(weather.list[0].rain['3h'] * 10) %>%</p>
+                    <% }%>
+
+                      <p>humidity: <%= weather.list[0].main.humidity%>%</p>
+
+                      <p>Wind: <%= (weather.list[0].wind.speed*3.6).toFixed(2) %> km/h</p>
+
+                      <p>
+                        Visibility: <%= (weather.list[0].visibility/1000).toFixed(2)%> km
+                      </p>
+                     
+                </div>
+              </div>
+           <% } else {%>
+            <h2>🐸 Couldn't find that city on the map!</h2>
+            <% } %>
+        </div>
+  </body>
+
+</html>

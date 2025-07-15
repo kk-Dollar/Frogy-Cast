@@ -1,0 +1,127 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+    padding-top: 40px;
+}
+.container
+{
+    max-width: 550px;
+    padding: 20px;
+    margin: auto;
+} 
+.input-group{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+input{
+    padding: 5px 13px;
+    border-radius: 5px 0px 0px 5px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    font-weight: 400;
+   
+}
+button{
+    padding: 5px 15px ;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(to right, #8da2b0, #b6afb9);
+   
+}
+
+.response-area
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    padding-bottom: 50px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.left-data
+{
+
+  max-width: 50%;
+  height: 100%;
+
+}
+
+.temperature-info{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: -10px;
+
+}
+.temperature{
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 0;
+}
+.now{
+    font-size: 1.3rem;
+    font-weight: 400;
+   
+}
+
+.temperature-info>img{
+    
+    width: auto;
+    height: 80px;
+    margin-left:-22px;
+    margin-bottom: -6px;
+}
+.city-name{
+    display: flex;
+    align-items:center;
+    gap: 10px;
+    margin-top: 40px;
+    margin-bottom: -35px;
+}
+
+.city-name img{
+    height:15px;
+    width: auto;
+    margin-bottom: -2px;
+    
+}
+.right-data
+{
+    max-width: 45%;
+}
+
+.right-data p{
+   line-height: 1.4;
+   font-weight: 400;
+}
+.right-data>p:first-child
+{
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 5px;
+   
+}
+.frog-background
+{
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  
+}
+h2{
+    text-align: center;
+}
